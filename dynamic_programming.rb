@@ -41,10 +41,40 @@ def bottom_up_cut_rod(p,n)
   return r[n]
 end
 
+def extended_bottom_up_cut_rod(p,n)
+  r=Array.new(n)#お金
+  s=Array.new(n)#切り取る棒の長さ
+  r[0]=0
+
+  for j in 1..n
+    q=-10000
+    for i in 1..j
+      if q<p[i]+r[j-i]
+        q=p[i]+r[j-i]
+        s[j]=i
+      end
+    end
+    r[j]=q
+  end
+  return r,s
+end
+
+def print_cut_rod_solution(p,n)
+  r,s=extended_bottom_up_cut_rod(p,n)
+
+  while n>0
+    puts "cut rod -> #{s[n]}"
+    puts "get money -> #{r[n]}"
+    n=n-s[n]
+  end
+
+end
 
 #main
 
 #遅いやつ
 #p cut_rod($p,$n)
+#p bottom_up_cut_rod($p,$n)
+#puts extended_bottom_up_cut_rod($p,$n)
 
-p bottom_up_cut_rod($p,$n)
+puts print_cut_rod_solution($p,7)
