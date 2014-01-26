@@ -61,6 +61,7 @@ while $game_status
   end
 
   #斜め
+  #この判定ひどすぎワロタｗｗｗｗ
   if ($board[0][0] == maru[now] && $board[1][1] == maru[now] && $board[2][2] = maru[now]) or ($board[0][2] == maru[now] && $board[1][1] == maru[now] && $board[2][0] = maru[now])
     finish_msg(now)
   end
