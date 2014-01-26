@@ -68,6 +68,7 @@ while $game_status
 
   puts_map()
 
+  #プレイヤーのスイッチングどうしたら効率いいですか？教えてエロい人
   tmp = now
   now = next_turn
   next_turn = tmp
